@@ -198,6 +198,29 @@ Stop with:
 Ctrl + C
 ```
 
+## Run on Windows Startup
+
+You can start the relay in the background with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\start_translator.ps1
+```
+
+Stop it with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\stop_translator.ps1
+```
+
+For automatic startup after Windows login, create a shortcut or startup script that runs `start_translator.ps1`.
+
+Logs are written to:
+
+```text
+logs/translator.out.log
+logs/translator.err.log
+```
+
 ## Security
 
 Do not commit or share:
@@ -208,6 +231,7 @@ Do not commit or share:
 - `state.json`
 - `downloaded_images/`
 - `kakao_previews/`
+- `logs/`
 - `.venv/`
 
 If any token or session file leaks, revoke the related Telegram, Kakao, or DeepL credentials immediately.
